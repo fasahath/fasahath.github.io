@@ -38,7 +38,7 @@ li{
 }
 
 a{
-    color: orangered;
+    color: #555555;
     text-decoration: none;
     border-bottom: 1px solid #ccc;
     -webkit-transition: all ease-out 0.2s;
