@@ -72,20 +72,26 @@ function setup(){
     }
 }
 
+var touched = false;
+
 function draw(){
     background(100);
-
-    if (mouseIsPressed) {
-        for(var i = 0; i < numParticles; i++) {
-            particles[i].flagForNewHue();
-        }
-        newHueVal = random(0, 100);
-    }
-
-    for (var i = 0; i < numParticles; i++){
+	if(touched){
+		touched = false;
+	    for(var i = 0; i < numParticles; i++) {
+		    particles[i].flagForNewHue();
+	    }
+		newHueVal = random(0, 100);
+	}
+	for (var i = 0; i < numParticles; i++){
         particles[i].update();
         particles[i].render();
     }
+}
+
+
+function touchStarted() {
+	touched = true;
 }
 
 
