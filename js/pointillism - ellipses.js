@@ -10,6 +10,9 @@ if (window.innerWidth <= 480) {
     numParticles = 50;
 }
 
+
+var msX = 0, msY = 0;
+
 var maxVelocity = 10;
 var newHueVal;
 
@@ -39,7 +42,7 @@ Particle.prototype.newHue = function() {
 Particle.prototype.update = function() {
     this.l.add(this.v);
     if(this.l.x < 0 || this.l.x > width || this.l.y < 0 || this.l.y > height){
-        this.l.set(mouseX, mouseY, 0);
+        this.l.set(msX, msY, 0);
         this.v.set(random(-maxVelocity, maxVelocity), random(-maxVelocity, maxVelocity), 0);
         if(this.newHueFlag) {
             this.newHue();
@@ -78,6 +81,8 @@ function draw(){
     background(100);
 	if(touched){
 		touched = false;
+		msX = mouseX;
+		msY = mouseY;
 	    for(var i = 0; i < numParticles; i++) {
 		    particles[i].flagForNewHue();
 	    }
