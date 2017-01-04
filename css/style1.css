@@ -12,13 +12,13 @@
 body{
     font-family: Baskerville, "Times New Roman", serif;
 
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-
     width: 100%;
     height: 100%;
     color: #555555;
+
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 h1{
@@ -93,12 +93,14 @@ i:hover{
 #home {
     overflow: hidden;
     position: absolute;
+	width:100%;
+	height:100%;
 }
 
 /*Header**/
 #home header{
     width: 100%;
-    height: 100%;
+    height: 20%;
     text-align: center;
     position: absolute;
     bottom: 30%;
@@ -207,5 +209,3 @@ i:hover{
 .description{
     margin-top: 70px;
 }
-
-
