@@ -85,3 +85,16 @@ footer{
 #home #copyright{
     padding: 12px;
 }
+
+
+@media(orientation: landscape){body{background-color: red;}}
+@media(orientation: portrait){
+	body{
+		background-color: yellow;
+		}
+	canvas{
+		background-color:orange;
+		width:100%;
+		height:100%;
+	}
+}
