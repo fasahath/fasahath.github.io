@@ -10,7 +10,6 @@ if (window.innerWidth <= 480) {
     numParticles = 50;
 }
 
-
 var msX = 0, msY = 0;
 
 var maxVelocity = 10;
@@ -49,6 +48,10 @@ Particle.prototype.update = function() {
             this.newHueFlag = false;
         }
     }
+	
+	if(this.d > 18){
+		this.d = 5;
+	}
 };
 
 Particle.prototype.render = function() {
@@ -74,18 +77,15 @@ function setup(){
         particles[i] = new Particle(xc, yc, dia);
     }
 }
-
 var touched = false;
 
 function draw(){
     background(100);
 	if(touched){
 		touched = false;
-		msX = mouseX;
-		msY = mouseY;
-	    for(var i = 0; i < numParticles; i++) {
-		    particles[i].flagForNewHue();
-	    }
+	for(var i = 0; i < numParticles; i++) {
+		particles[i].flagForNewHue();
+	}
 		newHueVal = random(0, 100);
 	}
 	for (var i = 0; i < numParticles; i++){
@@ -94,12 +94,21 @@ function draw(){
     }
 }
 
+function touchStarted(){
+	msX = mouseX;
+	msY = mouseY;
+}
 
-function touchStarted() {
+function touchEnded() {
 	touched = true;
 }
 
 
-window.onresize = function(event) {
+/* window.onresize = function(event) {
+	console.log("size changed")
     createCanvas(window.innerWidth,window.innerHeight-3);
-};
+}; */
+
+window.addEventListener('resize', function(event){
+    createCanvas(window.innerWidth,window.innerHeight-3);
+});
